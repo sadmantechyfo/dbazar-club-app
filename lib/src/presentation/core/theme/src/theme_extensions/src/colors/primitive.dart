@@ -9,7 +9,8 @@ class _Primitive {
   static const Color neutral0 = Color(0xFFFFFFFF);
   static const Color neutral10 = Color(0xFFF2F8FF);
   static const Color neutral20 = Color(0xFFBABABD);
-  static const Color neutral30 = Color(0xFFD5DCE4);
+  //static const Color neutral30 = Color(0xFFD5DCE4);
+  static const Color neutral30 = Color(0xFFF2F3F2);
   static const Color neutral40 = Color(0xFF75757C);
   static const Color neutral50 = Color(0xFF313137);
   static const Color neutral60 = Color(0xFF1B1B1B);

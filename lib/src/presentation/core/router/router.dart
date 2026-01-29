@@ -11,7 +11,9 @@ import '../../features/authentication/forgot_password/view/reset_password_page.d
 import '../../features/authentication/forgot_password/view/reset_password_success_page.dart';
 import '../../features/authentication/login/view/login_page.dart';
 import '../../features/authentication/registration/view/registration_page.dart';
+import '../../features/cart/views/cart_page.dart';
 import '../../features/categories/views/categories_page.dart';
+import '../../features/categories/views/caterogry_product_list_page.dart';
 import '../../features/home/view/home_page.dart';
 import '../../features/onboarding/view/onboarding_page.dart';
 import '../../features/profile/view/profile_page.dart';
@@ -22,6 +24,7 @@ import 'router_state/router_state_provider.dart';
 import 'routes.dart';
 
 part 'parts/authentication_routes.dart';
+part 'parts/product/product_routes.dart';
 part 'parts/on_boarding_routes.dart';
 part 'parts/shell_routes.dart';
 part 'router.g.dart';
@@ -62,6 +65,7 @@ GoRouter goRouter(Ref ref) {
       ..._onboardingRoutes(ref),
       ..._authenticationRoutes(ref),
       _shellRoutes(ref),
+      ..._productRoutes(ref),
     ],
   );
 }

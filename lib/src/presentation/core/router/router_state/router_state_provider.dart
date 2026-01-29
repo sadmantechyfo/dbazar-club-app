@@ -36,7 +36,7 @@ class RouterState extends _$RouterState {
       ref.read(markOnboardingCompletedUseCaseProvider).call();
       return;
     }
-
-    state = isLoggedIn ? Routes.home : Routes.login;
+    state = Routes.home;
+    // state = isLoggedIn ? Routes.home : Routes.login;
   }
 }

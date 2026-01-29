@@ -12,5 +12,7 @@ class Routes {
 
   static const String home = '/home';
   static const String categories = '/categories';
+  static const String categoryProducts = '/category-products';
+  static const String cart = '/cart';
   static const String profile = '/profile';
 }

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gap/gap.dart';
-
+import 'package:go_router/go_router.dart';
+import '../../../core/router/routes.dart';
 import '../../../core/theme/theme.dart';
 import '../../../core/widgets/navigation_shell.dart';
-import '../../categories/views/caterogry_product_list_page.dart';
 import '../riverpod/home_provider.dart';
+import '../widgets/app_banner_slider.dart';
+import '../widgets/app_categories.dart';
+import '../widgets/app_search_bar.dart';
 
 // ---------------- Home Page ----------------
 class HomePage extends ConsumerWidget {
@@ -14,22 +17,40 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final category = ref.watch(homeCategoryProvider);
-    return Scaffold(
-      appBar: const HomeAppBar(),
-      endDrawer: const AppDrawer(),
-      body: ListView(
-        padding: EdgeInsets.all(context.padding.p16),
-        children: [
-          AnimatedSwitcher(
-            duration: const Duration(milliseconds: 250),
-            transitionBuilder: (child, animation) =>
-                FadeTransition(opacity: animation, child: child),
-            child: const _PromoGrid(),
+
+    return const Scaffold(
+      appBar: HomeAppBar(),
+      endDrawer: AppDrawer(),
+      body: CustomScrollView(
+        slivers: [
+          /// SEARCH + BANNER
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                AppSearchBar(),
+                SizedBox(height: 16),
+                AppBannerSlider(),
+                SizedBox(height: 16),
+                ShopByCategory(),
+              ],
+            ),
           ),
-          const Gap(24),
-          const _FlashSaleHeader(),
-          const Gap(12),
-          const _FlashSaleList(),
+
+          /// PROMO GRID
+          // SliverPadding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 16),
+          //   sliver: _PromoGridSliver(category: category),
+          // ),
+
+          SliverToBoxAdapter(child: Gap(24)),
+
+          /// FLASH SALE HEADER
+          SliverToBoxAdapter(child: _FlashSaleHeader()),
+
+          SliverToBoxAdapter(child: Gap(12)),
+
+          /// FLASH SALE LIST
+          SliverToBoxAdapter(child: _FlashSaleList()),
         ],
       ),
     );
@@ -77,10 +98,8 @@ class _PromoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const CategoryProductList()),
-        );
+        //context.go(Routes.categoryProducts);
+        context.pushNamed(Routes.categoryProducts, extra: {'title': title});
       },
       child: Container(
         padding: const EdgeInsets.all(12),
@@ -107,7 +126,12 @@ class _FlashSaleHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text('Flash Sales', style: Theme.of(context).textTheme.titleLarge),
-        TextButton(onPressed: () {}, child: const Text('More')),
+        TextButton(
+          onPressed: () {
+            context.push(Routes.categoryProducts);
+          },
+          child: const Text('More'),
+        ),
       ],
     );
   }

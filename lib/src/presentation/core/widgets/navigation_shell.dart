@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/extensions/app_localization.dart';
 import '../../features/authentication/login/widgets/language_switcher.dart';
 import '../../features/search/views/search_page.dart';
+import '../router/routes.dart';
 import '../theme/theme.dart';
 import 'text/typography.dart';
 
@@ -20,31 +21,16 @@ class _NavigationShellState extends State<NavigationShell> {
   int _cartCount = 2;
   int _totalPrice = 6124;
 
-  // PreferredSizeWidget _appBar(BuildContext context) {
-  //   switch (widget.statefulNavigationShell.currentIndex) {
-  //     case 0:
-  //       return const HomeAppBar();
-  //     case 1:
-  //       return const ProfileAppBar();
-  //     default:
-  //       return const DefaultAppBar();
-  //   }
-  // }
-
   void _onCheckoutPressed() {
     print('Checkout pressed');
+    context.pushNamed(Routes.cart);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    //  appBar: _appBar(context),
-    //   endDrawer: widget.statefulNavigationShell.currentIndex == 0
-    //       ? const AppDrawer()
-    //       : null,
       body: Stack(
         children: [
-          // Main content with padding for checkout bar
           Padding(
             padding: EdgeInsets.only(bottom: _cartCount > 0 ? 70 : 0),
             child: widget.statefulNavigationShell,
@@ -256,40 +242,40 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       automaticallyImplyLeading: false,
       titleSpacing: 16.0,
-      title: SizedBox(
-        height: 40,
-        child: TextField(
-          readOnly: true,
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const SearchPage()),
-            );
-          },
-          decoration: InputDecoration(
-            hintText: 'Search products, categories...',
-            prefixIcon: Icon(Icons.search, color: context.color.primary),
-            filled: true,
-            fillColor: context.color.primary.withOpacity(0.08),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: context.color.primary),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: const BorderSide(color: Colors.grey),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(20),
-              borderSide: BorderSide(color: context.color.primary, width: 2),
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 0,
-              horizontal: 16,
-            ),
-          ),
-        ),
-      ),
+      // title: SizedBox(
+      //   height: 40,
+      //   child: TextField(
+      //     readOnly: true,
+      //     onTap: () {
+      //       Navigator.push(
+      //         context,
+      //         MaterialPageRoute(builder: (_) => const SearchPage()),
+      //       );
+      //     },
+      //     decoration: InputDecoration(
+      //       hintText: 'Search products, categories...',
+      //       prefixIcon: Icon(Icons.search, color: context.color.primary),
+      //       filled: true,
+      //       fillColor: context.color.primary.withOpacity(0.08),
+      //       border: OutlineInputBorder(
+      //         borderRadius: BorderRadius.circular(20),
+      //         borderSide: BorderSide(color: context.color.primary),
+      //       ),
+      //       enabledBorder: OutlineInputBorder(
+      //         borderRadius: BorderRadius.circular(20),
+      //         borderSide: const BorderSide(color: Colors.grey),
+      //       ),
+      //       focusedBorder: OutlineInputBorder(
+      //         borderRadius: BorderRadius.circular(20),
+      //         borderSide: BorderSide(color: context.color.primary, width: 2),
+      //       ),
+      //       contentPadding: const EdgeInsets.symmetric(
+      //         vertical: 0,
+      //         horizontal: 16,
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

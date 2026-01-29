@@ -76,6 +76,7 @@ class _Padding {
   const _Padding();
 
   final double p4 = Dimensions._v4;
+  final double p8 = Dimensions._v8;
   final double p16 = Dimensions._v16;
   final double p20 = Dimensions._v20;
   final double p24 = Dimensions._v24;

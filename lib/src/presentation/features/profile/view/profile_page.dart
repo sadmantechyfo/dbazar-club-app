@@ -35,38 +35,90 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ],
               ),
-              child: Column(
+              child: Stack(
                 children: [
-                  const CircleAvatar(
-                    radius: 42,
-                    backgroundImage: NetworkImage('https://i.pravatar.cc/150'),
-                  ),
-                  const SizedBox(height: 12),
-                  const Text(
-                    'Sadman Techyfo',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    '+880 17XXXXXXXX',
-                    style: TextStyle(color: Colors.grey.shade600),
-                  ),
-                  const SizedBox(height: 12),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.edit, size: 18),
-                      label: const Text('Edit Profile'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: primary,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                  /// Wallet UI (Top Right)
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: InkWell(
+                      onTap: () {
+                        // Navigate to wallet page
+                      },
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 6,
+                        ),
+                        decoration: BoxDecoration(
+                          color: primary.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.account_balance_wallet_outlined,
+                              size: 18,
+                              color: primary,
+                            ),
+                            const SizedBox(width: 6),
+                            Text(
+                              '৳ 1,250',
+                              style: TextStyle(
+                                color: primary,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
+                  ),
+
+                  /// Profile content
+                  Column(
+                    children: [
+                      const SizedBox(height: 10),
+                      const CircleAvatar(
+                        radius: 42,
+                        backgroundImage: NetworkImage(
+                          'https://i.pravatar.cc/150',
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                      const Text(
+                        'Sadman Techyfo',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '+880 17XXXXXXXX',
+                        style: TextStyle(color: Colors.grey.shade600),
+                      ),
+                      const SizedBox(height: 12),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.edit, size: 18),
+                          label: const Text('Edit Profile'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: primary,
+                            foregroundColor: Colors.white,
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

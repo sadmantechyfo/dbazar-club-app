@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/router/routes.dart';
 import '../../../core/theme/theme.dart';
 import 'product_details_page.dart';
 
 class CategoryProductList extends StatelessWidget {
-  const CategoryProductList({super.key});
-
+  const CategoryProductList({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     final products = [
@@ -90,12 +92,13 @@ class CategoryProductList extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.pop(context);
+            //context.go(Routes.home);
+            context.pop();
           },
         ),
-        title: const Text(
-          'Winter Collection',
-          style: TextStyle(
+        title: Text(
+          title.toString(),
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 18,
             fontWeight: FontWeight.w500,
