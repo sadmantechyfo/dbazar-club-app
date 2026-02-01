@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../core/router/routes.dart';
 import '../widgets/cart_item.dart';
 import '../widgets/checkout_button.dart';
 
@@ -49,7 +51,7 @@ class CartPage extends StatelessWidget {
             isLoading: false,
             isDisabled: false,
             onPressed: () {
-              // Go to checkout
+              context.push(Routes.checkout);
             },
           )
 

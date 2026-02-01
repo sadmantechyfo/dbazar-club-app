@@ -12,7 +12,10 @@ class Routes {
 
   static const String home = '/home';
   static const String categories = '/categories';
+  static const String categoryDetails = '/category-details';
   static const String categoryProducts = '/category-products';
+  static const String productDetails = '/product-details';
   static const String cart = '/cart';
   static const String profile = '/profile';
+  static const String checkout = '/checkout';
 }

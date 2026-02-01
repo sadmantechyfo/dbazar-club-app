@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -13,7 +14,10 @@ import '../../features/authentication/login/view/login_page.dart';
 import '../../features/authentication/registration/view/registration_page.dart';
 import '../../features/cart/views/cart_page.dart';
 import '../../features/categories/views/categories_page.dart';
-import '../../features/categories/views/caterogry_product_list_page.dart';
+import '../../features/categories/views/category_details_page.dart';
+import '../../features/categories/views/product_list_page.dart';
+import '../../features/categories/views/product_details_page.dart';
+import '../../features/checkout/views/checkout_page.dart';
 import '../../features/home/view/home_page.dart';
 import '../../features/onboarding/view/onboarding_page.dart';
 import '../../features/profile/view/profile_page.dart';

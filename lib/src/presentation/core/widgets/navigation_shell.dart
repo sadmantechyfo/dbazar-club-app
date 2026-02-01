@@ -230,55 +230,6 @@ class _CheckoutBar extends StatelessWidget {
   }
 }
 
-class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HomeAppBar({super.key});
-
-  @override
-  Size get preferredSize => const Size.fromHeight(64);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      automaticallyImplyLeading: false,
-      titleSpacing: 16.0,
-      // title: SizedBox(
-      //   height: 40,
-      //   child: TextField(
-      //     readOnly: true,
-      //     onTap: () {
-      //       Navigator.push(
-      //         context,
-      //         MaterialPageRoute(builder: (_) => const SearchPage()),
-      //       );
-      //     },
-      //     decoration: InputDecoration(
-      //       hintText: 'Search products, categories...',
-      //       prefixIcon: Icon(Icons.search, color: context.color.primary),
-      //       filled: true,
-      //       fillColor: context.color.primary.withOpacity(0.08),
-      //       border: OutlineInputBorder(
-      //         borderRadius: BorderRadius.circular(20),
-      //         borderSide: BorderSide(color: context.color.primary),
-      //       ),
-      //       enabledBorder: OutlineInputBorder(
-      //         borderRadius: BorderRadius.circular(20),
-      //         borderSide: const BorderSide(color: Colors.grey),
-      //       ),
-      //       focusedBorder: OutlineInputBorder(
-      //         borderRadius: BorderRadius.circular(20),
-      //         borderSide: BorderSide(color: context.color.primary, width: 2),
-      //       ),
-      //       contentPadding: const EdgeInsets.symmetric(
-      //         vertical: 0,
-      //         horizontal: 16,
-      //       ),
-      //     ),
-      //   ),
-      // ),
-    );
-  }
-}
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ProfileAppBar({super.key});

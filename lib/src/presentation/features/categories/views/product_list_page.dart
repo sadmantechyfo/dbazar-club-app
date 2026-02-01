@@ -1,90 +1,88 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../../core/router/routes.dart';
 import '../../../core/theme/theme.dart';
 import 'product_details_page.dart';
 
-class CategoryProductList extends StatelessWidget {
-  const CategoryProductList({super.key, required this.title});
+final products = [
+  ProductItem(
+    title: 'Chicken Eggs (Discounted)',
+    subtitle: '12 pcs',
+    price: 109,
+    oldPrice: 119,
+    delivery: '1 hr',
+    imageUrl: 'assets/eggs.png',
+  ),
+  ProductItem(
+    title: 'Tata Tea Premium',
+    subtitle: '400 gm',
+    price: 149,
+    oldPrice: 220,
+    delivery: '1 hr',
+    imageUrl: 'assets/tata_tea.png',
+  ),
+  ProductItem(
+    title: 'Ching\'s Red Chilli Sauce',
+    subtitle: '200 gm',
+    price: 99,
+    oldPrice: 160,
+    delivery: '1 hr',
+    imageUrl: 'assets/chilli_sauce.png',
+  ),
+  ProductItem(
+    title: 'Desifarm Khejurer Patali Gur Giftbox',
+    subtitle: '1 kg',
+    price: 599,
+    oldPrice: 700,
+    delivery: '1 hr',
+    imageUrl: 'assets/patali_gur.png',
+  ),
+  ProductItem(
+    title: 'Root Premium Akher Gur (Pow...',
+    subtitle: '400 gm',
+    price: 309,
+    oldPrice: 320,
+    delivery: '1 hr',
+    imageUrl: 'assets/akher_gur.png',
+  ),
+  ProductItem(
+    title: 'Desifarm Khejurer Nolen Gur',
+    subtitle: '1 kg',
+    price: 619,
+    oldPrice: 660,
+    delivery: '1 hr',
+    imageUrl: 'assets/nolen_gur.png',
+  ),
+  ProductItem(
+    title: 'Broccoli',
+    subtitle: 'each',
+    price: 65,
+    oldPrice: 85,
+    delivery: '1 hr',
+    imageUrl: 'assets/broccoli.png',
+  ),
+  ProductItem(
+    title: 'Desifarm Khejurer Danadar Jhola Gur',
+    subtitle: '1 kg',
+    price: 619,
+    oldPrice: 650,
+    delivery: '1 hr',
+    imageUrl: 'assets/jhola_gur.png',
+  ),
+  ProductItem(
+    title: 'Vaseline Lip Therapy Original',
+    subtitle: '20 gm',
+    price: 300,
+    oldPrice: null,
+    delivery: '1 hr',
+    imageUrl: 'assets/vaseline.png',
+  ),
+];
+
+class ProductListPage extends StatelessWidget {
+  const ProductListPage({super.key, required this.title});
   final String title;
   @override
   Widget build(BuildContext context) {
-    final products = [
-      ProductItem(
-        title: 'Chicken Eggs (Discounted)',
-        subtitle: '12 pcs',
-        price: 109,
-        oldPrice: 119,
-        delivery: '1 hr',
-        imageUrl: 'assets/eggs.png',
-      ),
-      ProductItem(
-        title: 'Tata Tea Premium',
-        subtitle: '400 gm',
-        price: 149,
-        oldPrice: 220,
-        delivery: '1 hr',
-        imageUrl: 'assets/tata_tea.png',
-      ),
-      ProductItem(
-        title: 'Ching\'s Red Chilli Sauce',
-        subtitle: '200 gm',
-        price: 99,
-        oldPrice: 160,
-        delivery: '1 hr',
-        imageUrl: 'assets/chilli_sauce.png',
-      ),
-      ProductItem(
-        title: 'Desifarm Khejurer Patali Gur Giftbox',
-        subtitle: '1 kg',
-        price: 599,
-        oldPrice: 700,
-        delivery: '1 hr',
-        imageUrl: 'assets/patali_gur.png',
-      ),
-      ProductItem(
-        title: 'Root Premium Akher Gur (Pow...',
-        subtitle: '400 gm',
-        price: 309,
-        oldPrice: 320,
-        delivery: '1 hr',
-        imageUrl: 'assets/akher_gur.png',
-      ),
-      ProductItem(
-        title: 'Desifarm Khejurer Nolen Gur',
-        subtitle: '1 kg',
-        price: 619,
-        oldPrice: 660,
-        delivery: '1 hr',
-        imageUrl: 'assets/nolen_gur.png',
-      ),
-      ProductItem(
-        title: 'Broccoli',
-        subtitle: 'each',
-        price: 65,
-        oldPrice: 85,
-        delivery: '1 hr',
-        imageUrl: 'assets/broccoli.png',
-      ),
-      ProductItem(
-        title: 'Desifarm Khejurer Danadar Jhola Gur',
-        subtitle: '1 kg',
-        price: 619,
-        oldPrice: 650,
-        delivery: '1 hr',
-        imageUrl: 'assets/jhola_gur.png',
-      ),
-      ProductItem(
-        title: 'Vaseline Lip Therapy Original',
-        subtitle: '20 gm',
-        price: 300,
-        oldPrice: null,
-        delivery: '1 hr',
-        imageUrl: 'assets/vaseline.png',
-      ),
-    ];
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -134,7 +132,7 @@ class CategoryProductList extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProductDetailsPage(),
+                      builder: (context) => const ProductDetailsPage(),
                     ),
                   );
                 },
@@ -145,23 +143,6 @@ class CategoryProductList extends StatelessWidget {
       ),
     );
   }
-}
-
-class ProductItem {
-  ProductItem({
-    required this.title,
-    required this.subtitle,
-    required this.price,
-    this.oldPrice,
-    required this.delivery,
-    required this.imageUrl,
-  });
-  final String title;
-  final String subtitle;
-  final int price;
-  final int? oldPrice;
-  final String delivery;
-  final String imageUrl;
 }
 
 class ProductGridCard extends StatelessWidget {
@@ -326,4 +307,21 @@ class ProductGridCard extends StatelessWidget {
       ),
     );
   }
+}
+
+class ProductItem {
+  ProductItem({
+    required this.title,
+    required this.subtitle,
+    required this.price,
+    this.oldPrice,
+    required this.delivery,
+    required this.imageUrl,
+  });
+  final String title;
+  final String subtitle;
+  final int price;
+  final int? oldPrice;
+  final String delivery;
+  final String imageUrl;
 }

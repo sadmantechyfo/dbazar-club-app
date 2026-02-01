@@ -8,8 +8,6 @@ class ShopByCategory extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -49,9 +47,10 @@ class ShopByCategory extends StatelessWidget {
               childAspectRatio: 1.3,
             ),
             itemBuilder: (context, index) {
-              return const CategoryCard(
+              return CategoryCard(
                 categoryName: 'Vegetables & Fruits',
                 categoryImage: 'assets/images/fruits.png',
+                onTap: () {},
               );
             },
           ),

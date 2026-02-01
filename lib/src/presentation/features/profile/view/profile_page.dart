@@ -105,7 +105,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton.icon(
-                          onPressed: () {},
+                          onPressed: () {
+                            // Navigate to edit profile page
+                          },
                           icon: const Icon(Icons.edit, size: 18),
                           label: const Text('Edit Profile'),
                           style: ElevatedButton.styleFrom(
@@ -143,6 +145,17 @@ class _ProfilePageState extends State<ProfilePage> {
               onTap: () {},
             ),
             _ProfileTile(icon: Icons.language, title: 'Language', onTap: () {}),
+
+            _ProfileTile(
+              icon: Icons.local_offer_outlined,
+              title: 'Promo Code',
+              onTap: () {},
+            ),
+            _ProfileTile(
+              icon: Icons.notifications_none,
+              title: 'Notifications',
+              onTap: () {},
+            ),
             _ProfileTile(
               icon: Icons.settings_outlined,
               title: 'Settings',
@@ -155,7 +168,9 @@ class _ProfilePageState extends State<ProfilePage> {
               icon: Icons.logout,
               title: 'Logout',
               isLogout: true,
-              onTap: () {},
+              onTap: () {
+                // Handle logout
+              },
             ),
           ],
         ),
@@ -164,7 +179,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 }
 
-/// Reusable List Tile
 class _ProfileTile extends StatelessWidget {
   const _ProfileTile({
     required this.icon,
@@ -172,24 +186,18 @@ class _ProfileTile extends StatelessWidget {
     required this.onTap,
     this.isLogout = false,
   });
-
   final IconData icon;
   final String title;
   final VoidCallback onTap;
   final bool isLogout;
-
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final primary = theme.colorScheme.primary;
+    final primary = Colors.black;
     final error = theme.colorScheme.error;
-
     return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
-      ),
+      margin: const EdgeInsets.only(bottom: 2),
+      decoration: const BoxDecoration(color: Colors.white),
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: (isLogout ? error : primary).withOpacity(0.1),
