@@ -29,32 +29,7 @@ class _NavigationShellState extends State<NavigationShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: _cartCount > 0 ? 70 : 0),
-            child: widget.statefulNavigationShell,
-          ),
-
-          // Checkout bar (positioned above navbar)
-          if (_cartCount > 0)
-            Positioned(
-              left: 5,
-              right: 5,
-              bottom: 5,
-              child: AnimatedSlide(
-                offset: Offset.zero,
-                duration: const Duration(milliseconds: 250),
-                curve: Curves.easeOut,
-                child: _CheckoutBar(
-                  cartCount: _cartCount,
-                  totalPrice: _totalPrice,
-                  onCheckoutPressed: _onCheckoutPressed,
-                ),
-              ),
-            ),
-        ],
-      ),
+      body: widget.statefulNavigationShell,
       bottomNavigationBar: _CustomBottomNavBar(
         currentIndex: widget.statefulNavigationShell.currentIndex,
         onTap: widget.statefulNavigationShell.goBranch,
@@ -103,11 +78,18 @@ class _CustomBottomNavBar extends StatelessWidget {
                 onTap: () => onTap(1),
               ),
               _NavBarItem(
+                icon: Icons.shopping_cart_outlined,
+                activeIcon: Icons.shopping_cart,
+                label: context.locale.cart,
+                isActive: currentIndex == 2,
+                onTap: () => onTap(2),
+              ),
+              _NavBarItem(
                 icon: Icons.person_2_outlined,
                 activeIcon: Icons.person_2,
                 label: context.locale.profile,
-                isActive: currentIndex == 2,
-                onTap: () => onTap(2),
+                isActive: currentIndex == 3,
+                onTap: () => onTap(3),
               ),
             ],
           ),
@@ -163,73 +145,72 @@ class _NavBarItem extends StatelessWidget {
   }
 }
 
-// Checkout Bar matching Image 2
-class _CheckoutBar extends StatelessWidget {
-  const _CheckoutBar({
-    required this.cartCount,
-    required this.totalPrice,
-    required this.onCheckoutPressed,
-  });
-  final int cartCount;
-  final int totalPrice;
-  final VoidCallback onCheckoutPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    final primaryColor = Theme.of(context).colorScheme.primary;
-
-    return Container(
-      height: 50,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: primaryColor,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: primaryColor.withOpacity(0.35),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onCheckoutPressed,
-          borderRadius: BorderRadius.circular(16),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              children: [
-                /// Checkout text
-                Text(
-                  'Checkout',
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-
-                const Spacer(),
-
-                /// Total price
-                Text(
-                  '৳$totalPrice',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
+// // Checkout Bar matching Image 2
+// class _CheckoutBar extends StatelessWidget {
+//   const _CheckoutBar({
+//     required this.cartCount,
+//     required this.totalPrice,
+//     required this.onCheckoutPressed,
+//   });
+//   final int cartCount;
+//   final int totalPrice;
+//   final VoidCallback onCheckoutPressed;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     final primaryColor = Theme.of(context).colorScheme.primary;
+//
+//     return Container(
+//       height: 50,
+//       width: double.infinity,
+//       decoration: BoxDecoration(
+//         color: primaryColor,
+//         borderRadius: BorderRadius.circular(16),
+//         boxShadow: [
+//           BoxShadow(
+//             color: primaryColor.withOpacity(0.35),
+//             blurRadius: 12,
+//             offset: const Offset(0, 4),
+//           ),
+//         ],
+//       ),
+//       child: Material(
+//         color: Colors.transparent,
+//         child: InkWell(
+//           onTap: onCheckoutPressed,
+//           borderRadius: BorderRadius.circular(16),
+//           child: Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 20),
+//             child: Row(
+//               children: [
+//                 /// Checkout text
+//                 Text(
+//                   'Checkout',
+//                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
+//                     color: Colors.white,
+//                     fontWeight: FontWeight.w600,
+//                   ),
+//                 ),
+//
+//                 const Spacer(),
+//
+//                 /// Total price
+//                 Text(
+//                   '৳$totalPrice',
+//                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
+//                     color: Colors.white,
+//                     fontSize: 18,
+//                     fontWeight: FontWeight.w600,
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {
   const ProfileAppBar({super.key});

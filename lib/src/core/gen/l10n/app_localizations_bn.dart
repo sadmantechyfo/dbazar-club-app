@@ -193,4 +193,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get categories => 'ক্যাটাগরি';
+
+  @override
+  String get cart => 'কার্ট';
 }

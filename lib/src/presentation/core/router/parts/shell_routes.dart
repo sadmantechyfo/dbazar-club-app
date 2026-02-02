@@ -31,6 +31,17 @@ StatefulShellRoute _shellRoutes(Ref ref) {
       StatefulShellBranch(
         routes: [
           GoRoute(
+            path: Routes.cart,
+            name: Routes.cart,
+            pageBuilder: (context, state) {
+              return const MaterialPage(child: CartPage());
+            },
+          ),
+        ],
+      ),
+      StatefulShellBranch(
+        routes: [
+          GoRoute(
             path: Routes.profile,
             name: Routes.profile,
             pageBuilder: (context, state) {

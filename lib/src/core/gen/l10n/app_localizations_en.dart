@@ -192,4 +192,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get categories => 'Categories';
+
+  @override
+  String get cart => 'Cart';
 }

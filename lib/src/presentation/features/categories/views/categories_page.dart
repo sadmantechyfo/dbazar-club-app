@@ -13,9 +13,9 @@ class CategoriesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(centerTitle: true, title: const Text('Categories')),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: context.padding.p8),
+        padding: EdgeInsets.all(context.padding.p8),
         child: GridView.builder(
-          itemCount: 20,
+          itemCount: 10,
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisSpacing: 12,
@@ -23,11 +23,11 @@ class CategoriesPage extends StatelessWidget {
             childAspectRatio: 1,
           ),
           itemBuilder: (context, index) {
-            return  CategoryCard(
+            return CategoryCard(
               categoryName: 'Vegetables & Fruits',
               categoryImage: 'assets/images/fruits.png',
               onTap: () {
-                context.pushNamed(Routes.categoryDetails,);
+                context.pushNamed(Routes.categoryDetails);
               },
             );
           },

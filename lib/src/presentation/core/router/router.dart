@@ -21,6 +21,7 @@ import '../../features/checkout/views/checkout_page.dart';
 import '../../features/home/view/home_page.dart';
 import '../../features/onboarding/view/onboarding_page.dart';
 import '../../features/profile/view/profile_page.dart';
+import '../../features/search/views/search_page.dart';
 import '../../features/splash/view/splash_page.dart';
 import '../widgets/app_startup/startup_widget.dart';
 import '../widgets/navigation_shell.dart';
@@ -31,6 +32,7 @@ part 'parts/authentication_routes.dart';
 part 'parts/product/product_routes.dart';
 part 'parts/on_boarding_routes.dart';
 part 'parts/shell_routes.dart';
+part 'parts/search_routes.dart';
 part 'router.g.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'Root');
@@ -70,6 +72,7 @@ GoRouter goRouter(Ref ref) {
       ..._authenticationRoutes(ref),
       _shellRoutes(ref),
       ..._productRoutes(ref),
+      ..._searchRoutes(ref),
     ],
   );
 }

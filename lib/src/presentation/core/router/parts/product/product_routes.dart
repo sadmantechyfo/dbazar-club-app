@@ -21,16 +21,6 @@ List<GoRoute> _productRoutes(Ref ref) {
         return const CategoryDetailsPage();
       },
     ),
-
-    GoRoute(
-      path: Routes.cart,
-      name: Routes.cart,
-      parentNavigatorKey: _rootNavigatorKey,
-      pageBuilder: (context, state) {
-        return const MaterialPage(child: CartPage());
-      },
-    ),
-
     GoRoute(
       path: Routes.checkout,
       name: Routes.checkout,
