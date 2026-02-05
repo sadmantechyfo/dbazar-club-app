@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../core/theme/theme.dart';
 
 class ProductDetailsPage extends StatefulWidget {

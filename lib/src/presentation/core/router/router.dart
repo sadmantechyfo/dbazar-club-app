@@ -19,6 +19,7 @@ import '../../features/categories/views/product_list_page.dart';
 import '../../features/categories/views/product_details_page.dart';
 import '../../features/checkout/views/checkout_page.dart';
 import '../../features/home/view/home_page.dart';
+import '../../features/notifications/views/notification_page.dart';
 import '../../features/onboarding/view/onboarding_page.dart';
 import '../../features/profile/view/profile_page.dart';
 import '../../features/search/views/search_page.dart';
@@ -32,6 +33,7 @@ part 'parts/authentication_routes.dart';
 part 'parts/product/product_routes.dart';
 part 'parts/on_boarding_routes.dart';
 part 'parts/shell_routes.dart';
+part 'parts/notification_routes.dart';
 part 'parts/search_routes.dart';
 part 'router.g.dart';
 
@@ -73,6 +75,7 @@ GoRouter goRouter(Ref ref) {
       _shellRoutes(ref),
       ..._productRoutes(ref),
       ..._searchRoutes(ref),
+      ..._notificationRoutes(ref),
     ],
   );
 }

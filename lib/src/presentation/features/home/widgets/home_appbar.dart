@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/extensions/spacing.dart';
+import '../../../core/router/routes.dart';
 
 class HomeAppBar extends StatefulWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
@@ -64,6 +66,21 @@ class _HomeAppBarState extends State<HomeAppBar> {
           ],
         ),
       ),
+      actions: [
+        IconButton(
+          onPressed: () {
+            context.pushNamed(Routes.notifications);
+          },
+          icon: const Icon(Icons.notifications_none_sharp),
+        ),
+
+        IconButton(
+          icon: const Icon(Icons.menu_open),
+          onPressed: () {
+            Scaffold.of(context).openEndDrawer();
+          },
+        ),
+      ],
     );
   }
 }

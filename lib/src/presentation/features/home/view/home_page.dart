@@ -31,9 +31,11 @@ class HomePage extends ConsumerWidget {
             child: Column(
               children: [
                 8.verticalSpace,
-                 AppSearchBar(onTap: () {
-                   context.pushNamed(Routes.search);
-                 },),
+                AppSearchBar(
+                  onTap: () {
+                    context.pushNamed(Routes.search);
+                  },
+                ),
                 const SizedBox(height: 16),
                 const AppBannerSlider(),
                 const SizedBox(height: 16),
@@ -79,7 +81,6 @@ class HomePage extends ConsumerWidget {
   }
 }
 
-
 // ---------------- Flash Sale ----------------
 class _FlashSaleHeader extends StatelessWidget {
   const _FlashSaleHeader();
@@ -100,5 +101,3 @@ class _FlashSaleHeader extends StatelessWidget {
     );
   }
 }
-
-
